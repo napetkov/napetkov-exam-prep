@@ -27,7 +27,7 @@ jobs:
       run: echo "napetkov"
       
   run-ui-tests:
-    
+    needs: build_test
     runs-on: ubuntu-latest
     
     steps:
@@ -42,7 +42,7 @@ jobs:
       run: npm install
     - name: Install Playwright browsers
       run: npx playwright install
-    - name: Run Node Server
+    - name: Start the application
       run: npm start &
     - name: Run the CI tests
       run: npm run test:ui
