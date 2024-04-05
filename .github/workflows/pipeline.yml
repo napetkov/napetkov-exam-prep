@@ -25,4 +25,8 @@ jobs:
       run: npm run test:unit
     - name: Display Softuni username
       run: echo "napetkov"
+    - name: Install Playwright browsers
+      run: npx playwright install
+    - name: Run the CI tests
+      run: npm run test:ui
     
