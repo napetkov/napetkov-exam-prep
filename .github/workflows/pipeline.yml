@@ -27,6 +27,8 @@ jobs:
       run: echo "napetkov"
     - name: Install Playwright browsers
       run: npx playwright install
+    - name: Run Node Server
+      run: npm start
     - name: Run the CI tests
       run: npm run test:ui
     
