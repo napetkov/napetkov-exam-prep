@@ -46,3 +46,15 @@ jobs:
       run: npm start &
     - name: Run the CI tests
       run: npm run test:ui
+  
+  depooy-production:
+    needs: run-ui-tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to production
+        uses: https://napetkov-shoping-list.onrender.com
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+          wait-for-success: true
